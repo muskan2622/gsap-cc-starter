@@ -1,58 +1,41 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { useEffect } from 'react';
+import gsap from 'gsap';
 
 const GsapStagger = () => {
-  // TODO: Implement the gsap.stagger() method
-
-  useGSAP(() => {
-    gsap.Stagger(
-      '#red-box', 
+  useEffect(() => {
+    gsap.to(
+      '.stagger-box',
       {
-        x: 0,
-        borderRadius: '0%',
-        rotation: 0,
-      }, 
-      { 
         x: 250,
-        repeat: -1,
-        yoyo: true,
-        borderRadius:'100%',
+        borderRadius: '100%',
         rotation: 360,
         duration: 2,
         ease: 'elastic',
-      }
+        repeat: -1,
+        yoyo: true,
+      },
+      5 // Stagger amount (in seconds)
     );
   }, []);
 
   return (
     <main>
       <h1>GsapStagger</h1>
-
       <p className="mt-5 text-gray-500">
-        GSAP stagger is a feature that allows you to apply animations with a
-        staggered delay to a group of elements.
+        GSAP stagger is a feature that allows you to apply animations with a staggered delay to a group of elements.
       </p>
-
       <p className="mt-5 text-gray-500">
-        By using the stagger feature in GSAP, you can specify the amount of time
-        to stagger the animations between each element, as well as customize the
-        easing and duration of each individual animation. This enables you to
-        create dynamic and visually appealing effects, such as staggered fades,
-        rotations, movements, and more.
+        By using the stagger feature in GSAP, you can specify the amount of time to stagger the animations between each
+        element, as well as customize the easing and duration of each individual animation. This enables you to create
+        dynamic and visually appealing effects, such as staggered fades, rotations, movements, and more.
       </p>
-
       <p className="mt-5 text-gray-500">
-        Read more about the{" "}
-        <a
-          href="https://gsap.com/resources/getting-started/Staggers"
-          target="_blank"
-          rel="noreferrer noopener nofollow"
-        >
+        Read more about the{' '}
+        <a href="https://gsap.com/resources/getting-started/Staggers" target="_blank" rel="noreferrer noopener nofollow">
           Gsap Stagger
-        </a>{" "}
+        </a>{' '}
         feature.
       </p>
-
       <div className="mt-20">
         <div className="flex gap-5">
           <div className="w-20 h-20 bg-indigo-200 rounded-lg stagger-box" />
